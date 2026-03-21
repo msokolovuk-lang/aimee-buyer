@@ -1,0 +1,18 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/analyze-body/route": "app/api/analyze-body/route.js",
+  "/api/negotiations/route": "app/api/negotiations/route.js",
+  "/brand/[brandId]/page": "app/brand/[brandId]/page.js",
+  "/api/tryon/route": "app/api/tryon/route.js",
+  "/api/stylist/route": "app/api/stylist/route.js",
+  "/page": "app/page.js",
+  "/shop/[id]/page": "app/shop/[id]/page.js",
+  "/shop/orders/page": "app/shop/orders/page.js",
+  "/shop/cart/page": "app/shop/cart/page.js",
+  "/buyer/auth/page": "app/buyer/auth/page.js",
+  "/shop/page": "app/shop/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/shop/checkout/page": "app/shop/checkout/page.js",
+  "/stylist/page": "app/stylist/page.js",
+  "/api/order/route": "app/api/order/route.js"
+}

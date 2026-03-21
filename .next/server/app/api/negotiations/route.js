@@ -1,0 +1,13 @@
+"use strict";(()=>{var e={};e.id=918,e.ids=[918],e.modules={399:e=>{e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},517:e=>{e.exports=require("next/dist/compiled/next-server/app-route.runtime.prod.js")},86:(e,t,r)=>{r.r(t),r.d(t,{originalPathname:()=>m,patchFetch:()=>h,requestAsyncStorage:()=>c,routeModule:()=>u,serverHooks:()=>l,staticGenerationAsyncStorage:()=>d});var n={};r.r(n),r.d(n,{POST:()=>p});var o=r(9303),a=r(8716),s=r(670),i=r(7070);async function p(e){let{product:t,messages:r,buyerMessage:n}=await e.json(),o=Math.round(.85*t.price),a=`Ты — AI-агент продавца на маркетплейсе AIMEE. Ты ведёшь переговоры о цене товара от имени бренда.
+
+Товар: ${t.name}
+Оригинальная цена: ${t.price} ₽
+Минимальная цена (не разглашай): ${o} ₽
+
+Правила:
+- Будь дружелюбным, но защищай интересы продавца
+- Можешь давать скидку максимум 15%
+- Если покупатель просит меньше минимума — мягко откажи и предложи минимум
+- Если покупатель согласен на цену >= минимума — подтверди сделку
+- При подтверждении сделки обязательно добавь в конце: [AGREED_PRICE: XXXXX] где XXXXX — согласованная цена в рублях (только число)
+- Отвечай коротко, по-русски, 1-2 предложения`,s=r.map(e=>({role:"buyer"===e.role?"user":"assistant",content:e.content}));try{let e=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json","x-api-key":process.env.ANTHROPIC_API_KEY||"","anthropic-version":"2023-06-01"},body:JSON.stringify({model:"claude-haiku-4-5-20251001",max_tokens:256,system:a,messages:[...s,{role:"user",content:n}]})}),t=await e.json(),r=t.content?.[0]?.text||"Рассмотрим ваше предложение.",o=r.match(/\[AGREED_PRICE:\s*(\d+)\]/),p=o?parseInt(o[1]):null,u=r.replace(/\[AGREED_PRICE:\s*\d+\]/,"").trim();return i.NextResponse.json({reply:u,agreedPrice:p})}catch{return i.NextResponse.json({reply:"Готов рассмотреть ваше предложение. Какую цену вы хотите?",agreedPrice:null})}}let u=new o.AppRouteRouteModule({definition:{kind:a.x.APP_ROUTE,page:"/api/negotiations/route",pathname:"/api/negotiations",filename:"route",bundlePath:"app/api/negotiations/route"},resolvedPagePath:"/Users/msokolov008/Downloads/aimee-buyer/src/app/api/negotiations/route.ts",nextConfigOutput:"",userland:n}),{requestAsyncStorage:c,staticGenerationAsyncStorage:d,serverHooks:l}=u,m="/api/negotiations/route";function h(){return(0,s.patchFetch)({serverHooks:l,staticGenerationAsyncStorage:d})}}};var t=require("../../../webpack-runtime.js");t.C(e);var r=e=>t(t.s=e),n=t.X(0,[948,972],()=>r(86));module.exports=n})();

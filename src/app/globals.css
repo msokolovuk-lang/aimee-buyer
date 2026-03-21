@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0D1117;
+  --surface: #161B22;
+  --card: #1C2333;
+  --border: #2A3444;
+  --text: #E6EDF3;
+  --muted: #8B949E;
+  --dim: #484F58;
+  --accent: #00E5C7;
+  --accent-dim: rgba(0,229,199,0.12);
+  --orange: #FFA657;
+  --orange-dim: rgba(255,166,87,0.12);
+  --ok: #3FB950;
+  --ok-dim: rgba(63,185,80,0.12);
+  --pink: #FF6B9D;
+}
+
+* { -webkit-tap-highlight-color: transparent; font-family: 'DM Sans', -apple-system, sans-serif; }
+
+body { background: var(--bg); color: var(--text); overscroll-behavior: none; }
+
+::-webkit-scrollbar { width: 0; height: 0; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fade-in { animation: fadeIn 0.2s ease forwards; }
+.slide-up { animation: slideUp 0.25s ease forwards; }
