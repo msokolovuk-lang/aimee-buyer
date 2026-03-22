@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter, useParams, useSearchParams } from 'next/navigation'
 import { supabase, trackActivity } from '@/lib/supabase'
+import TryOnButton from '@/components/TryOnButton'
 
 const C = {
   bg:'#0D1117', surface:'#161B22', card:'#1C2333', border:'#2A3444',
@@ -148,6 +149,22 @@ export default function ProductClient() {
                   >{s}</button>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Virtual Try-On */}
+          {product.images?.length > 0 && (
+            <div style={{ marginBottom:20 }}>
+              <TryOnButton
+                singleItem={true}
+                outfit={{ title: product.name, products: [product], discount: 0 }}
+                onAddAllToCart={(products: any[]) => {
+                  const cart = JSON.parse(localStorage.getItem('cart') || '[]')
+                  products.forEach((p: any) => cart.push({ product: { ...p, price: Number(p.price) }, size: selectedSize || '', quantity: 1 }))
+                  localStorage.setItem('cart', JSON.stringify(cart))
+                }}
+                onViewProduct={() => {}}
+              />
             </div>
           )}
 
